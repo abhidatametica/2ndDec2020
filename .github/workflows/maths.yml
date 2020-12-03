@@ -2,44 +2,42 @@ name: to operate functions
 
 on:
   push:
-    branches:[main]
+    branches: [main]
   pull_request:
-    branches:[main]
+    branches: [main]
 
 jobs:
   job1:
-      name : Addition Function
-      runs-on : ubuntu-latest
+     name: addition
+     runs-on : ubuntu-latest
+     steps:
+       - shell : bash
+         run: |
+           expr 2+4 > Addbook.txt
+      
+       - name: upload AddResult for job1
+         uses: actions/upload-artifact@v2
+         with :
+           name : Book1
+           path: AddBook.txt
 
-      steps:
-      -name : addition of 2 and 4
-      shell : bash
-      run: |
-        expr 2+4 > Addbook.txt
-        -name :upload AddResult for job1
-
-        uses:actions/upload-artifact@v2
-        with :
-        name : Book1
-        path: AddBook.txt
-
-    job2:
-      name : substract
-      needs : job1
-      runs-on : ubuntu-latest
-      steps:
-      -  name : download add result for job1
+  job2:
+     name : substract
+     needs : job1
+     runs-on : ubuntu-latest
+     steps:
+       - name : download add result for job1
          uses : actions/download-artifact@v2
          with :
-             name:Book1
-         shell: bash
+           name: Book1
+       - shell: bash
          run: |
-             value='cat AddBook.txt'
-             expr $value -3 >AddBook.txt
-             echo substraction is $value
-             -name :upload results for job2 
-             uses :actions//upload-artifact@v2
-             with:
-             name:Book1
-             path:Addbook.txt
+           value='cat AddBook.txt'
+           expr $value -3 >AddBook.txt
+           echo substraction is $value
+       -  name: upload results for job2
+          uses: actions//upload-artifact@v2
+          with:
+            name: Book1
+            path: Addbook.txt
 
