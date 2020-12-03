@@ -19,7 +19,7 @@ jobs:
          uses: actions/upload-artifact@v2
          with :
            name : Book1
-           path: AddBook.txt
+           path: Addbook.txt
 
   job2:
      name : substract
