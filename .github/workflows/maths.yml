@@ -1,16 +1,17 @@
 name: to operate functions
+
 on:
   push:
     branches:[main]
   pull_request:
     branches:[main]
 
-  jobs:
-    job1:
+jobs:
+  job1:
       name : Addition Function
       runs-on : ubuntu-latest
 
-    steps:
+      steps:
       -name : addition of 2 and 4
       shell : bash
       run: |
