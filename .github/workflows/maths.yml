@@ -32,11 +32,11 @@ jobs:
            name: Book1
        - shell: bash
          run: |
-           value='cat AddBook.txt'
-           expr $value -3 >AddBook.txt
+           value='cat Addbook.txt'
+           expr $value - 3 >Addbook.txt
            echo substraction is $value
        -  name: upload results for job2
-          uses: actions//upload-artifact@v2
+          uses: actions/upload-artifact@v2
           with:
             name: Book1
             path: Addbook.txt
