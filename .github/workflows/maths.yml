@@ -13,7 +13,7 @@ jobs:
      steps:
        - shell : bash
          run: |
-           expr 2+4 > Addbook.txt
+           expr 2 + 4 > Addbook.txt
       
        - name: upload AddResult for job1
          uses: actions/upload-artifact@v2
