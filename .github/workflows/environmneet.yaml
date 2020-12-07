@@ -26,7 +26,7 @@ jobs:
   Job2:
     runs-on: ubuntu-latest
     steps: 
-      - name: saurabh
+      - name: environmentt
         run: |
            echo "HOME : ${HOME}"
            echo GITHUB_WORKFLOW :"${GITHUB_WORKFLOW}"
